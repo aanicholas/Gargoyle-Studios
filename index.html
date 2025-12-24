@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1200, initial-scale=1" />
+  <title>Gargoyle Studios</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Home">
+        <!-- Rename if your file differs -->
+        <img class="brand-logo" src="gs-logo.svg" alt="Gargoyle Studios" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="page" role="main">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="container hero-frame">
+        <img
+          class="hero-image"
+          src="main-page-gargoyle.png"
+          alt="Gargoyle Studios hero artwork"
+        />
+        <img
+          class="hero-title"
+          src="gargoyle-studios-text.svg"
+          alt="Gargoyle Studios"
+        />
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about video-bg" aria-label="About Me">
+      <video class="background-video" autoplay muted loop playsinline>
+        <source src="about-me/background-video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="overlay">
+        <div class="container about-content">
+          <h1>About Me</h1>
+          <h2>Instructional design, 3D modeling, game development</h2>
+
+          <p>
+            This section will reuse your About-me layout and behavior. The video runs behind the
+            content, and the nav anchors cleanly to this section.
+          </p>
+
+          <h3>Focus Areas</h3>
+          <p>
+            Instructional design and multimedia development, 3D modeling/visualization, and
+            game development systems exploration.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio" aria-label="Portfolio">
+      <div class="container">
+        <h1>Instructional Design</h1>
+        <h2>Examples (Articulate Storyline published to HTML)</h2>
+
+        <div class="grid">
+          <article class="card">
+            <img src="portfolio/base-camp.png" alt="Base Camp thumbnail" />
+            <div class="card-body">
+              <h3>Base Camp</h3>
+              <p>Layout and template test, utilizing voiceover and closed captions.</p>
+              <!-- With an index.html redirect in the folder, this opens reliably -->
+              <a class="btn" href="portfolio/as-expedition-dna/">Open sample</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="portfolio/information-security.png" alt="Information Security thumbnail" />
+            <div class="card-body">
+              <h3>Information Security</h3>
+              <p>Content reduced/anonymized; sample demonstrates technical design and interaction flow.</p>
+              <a class="btn" href="portfolio/as-information-security/">Open sample</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="portfolio/project-rover.png" alt="Project Rover thumbnail" />
+            <div class="card-body">
+              <h3>Project Rover</h3>
+              <p>Storyline experience focused on technical narrative and interaction.</p>
+              <a class="btn" href="portfolio/as-project-rover/">Open sample</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact" class="footer" aria-label="Contact">
+      <div class="container footer-inner">
+        <div>
+          <h3>Contact</h3>
+          <p>
+            <a href="mailto:aanicholas2000@gmail.com">aanicholas2000@gmail.com</a><br />
+            <a href="https://www.linkedin.com/in/andrew-nicholas-57845619" target="_blank" rel="noopener noreferrer">
+              LinkedIn: andrew-nicholas-57845619
+            </a><br />
+            <a href="#" id="githubLink">GitHub: (add link)</a>
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Back to top</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

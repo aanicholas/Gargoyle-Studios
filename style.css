@@ -2,6 +2,10 @@
   --page-width: 1200px;
   --header-h: 64px;
 
+  --about-h: 1445px;          /* fixed per your requirement */
+  --about-panel-w: 715px;     /* fixed per your requirement */
+  --about-panel-bg: #0b2a16;  /* temporary dark green */
+
   /* Typography */
   --h1-size: 38px;
   --h1-color: #FFD600;
@@ -39,6 +43,43 @@
   --about-min-h: 1510px;
   --portfolio-min-h: 3600px;
   --footer-min-h: 284px;
+
+  /* ABOUT */
+.about{
+  position: relative;
+  min-height: var(--about-h);
+  background: #000; /* behind video margins if any */
+  overflow: hidden;
+}
+
+/* Video behind everything */
+.about-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: var(--about-h);
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay panel: 715px wide, full height, flush top-left */
+.about-panel{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--about-panel-w);
+  height: var(--about-h);
+  background: var(--about-panel-bg);
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Optional inner padding for content */
+.about-panel-inner{
+  width: 100%;
+  padding: 28px;
+}
 }
 
 *{ box-sizing:border-box; }

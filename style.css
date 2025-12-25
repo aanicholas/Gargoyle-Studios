@@ -4,7 +4,7 @@
 
   --about-h: 1445px;          /* fixed per your requirement */
   --about-panel-w: 715px;     /* fixed per your requirement */
-  --about-panel-bg: #0b2a16;  /* temporary dark green */
+  --about-panel-bg: #d151cf;  /* temporary dark green */
 
   /* Typography */
   --h1-size: 38px;
@@ -211,9 +211,10 @@ a:hover{ color: var(--link-hover); }
 
 /* ABOUT */
 .about{
-  background: var(--about-bg);
-  min-height: var(--about-min-h);
-  padding: 0;
+  position: relative;
+  min-height: var(--about-h);
+  background: #000;
+  overflow: hidden;
 }
 .video-bg{
   position: relative;
@@ -235,10 +236,12 @@ a:hover{ color: var(--link-hover); }
   align-items:flex-start;
   padding-top: 26px;
 }
+/* This wrapper is the positioning context for the panel */
 .about-content{
-  /* removed border + removed rounded corners */
-  background: rgba(0,0,0,.65);
-  padding: 28px;
+  position: relative;
+  min-height: var(--about-h);
+  z-index: 1; /* above the video */
+  padding: 0; /* ensure 0 gap at left/top inside the 1200 frame change to 28 later*/
 }
 
 /* PORTFOLIO */

@@ -2,9 +2,9 @@
   --page-width: 1200px;
   --header-h: 64px;
 
-  --about-h: 1445px;          /* fixed per your requirement */
+  --about-h: 1300px;          /* fixed per your requirement */
   --about-panel-w: 715px;     /* fixed per your requirement */
-  --about-panel-bg: #d151cf;  /* temporary dark green */
+  --about-panel-bg: transparent;  /* remember to set slight transparency rgba(0, 0, 0, 0.35); */
 
   /* Typography */
   --h1-size: 38px;
@@ -242,6 +242,17 @@ a:hover{ color: var(--link-hover); }
   min-height: var(--about-h);
   z-index: 1; /* above the video */
   padding: 0; /* ensure 0 gap at left/top inside the 1200 frame change to 28 later*/
+}
+
+/* This controls the Icon display */
+.icon-text-container {
+    display: flex;
+}
+.icon-column {
+    width: 100px; /* Set the width of the icon column */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /* PORTFOLIO */

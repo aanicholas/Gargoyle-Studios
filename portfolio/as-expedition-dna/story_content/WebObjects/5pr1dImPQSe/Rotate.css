@@ -1,0 +1,33 @@
+/* styles.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Make background transparent */
+}
+
+.container {
+    width: 100%;  /* Take up 100% of the viewport width */
+    height: 100%; /* Take up 100% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Make container background transparent */
+}
+
+.question-mark {
+    font-size: calc(50vw + 50vh); /* Adjust based on the viewport width/height */
+    color: #E4610F; /* Color of the question mark */
+    animation: rotate 2s linear infinite; /* Animation configuration */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}

@@ -52,7 +52,7 @@ body{
 }
 
 /* Anchor offset so headings don't hide under fixed header */
-section, footer{ scroll-margin-top: calc(var(--header-h) + 12px); }
+section, footer{ scroll-margin-top: calc(var(--header-h) + 1px); }
 
 .container{
   width: var(--page-width);

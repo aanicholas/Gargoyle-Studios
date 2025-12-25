@@ -51,8 +51,8 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Anchor offset so headings don't hide under fixed header */
-section, footer{ scroll-margin-top: calc(var(--header-h) + 1px); }
+/* Anchor offset so headings don't hide under fixed header if needed change 0px to 10px or something*/
+section, footer{ scroll-margin-top: calc(var(--header-h) + 0px); }
 
 .container{
   width: var(--page-width);
@@ -154,7 +154,7 @@ a:hover{ color: var(--link-hover); }
   top:50%;
   transform:translate(-50%, -50%);
   width: 560px;
-  height:auto;
+  height:60px;
 }
 
 /* ABOUT */

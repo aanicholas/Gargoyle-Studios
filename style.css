@@ -148,13 +148,24 @@ a:hover{ color: var(--link-hover); }
   object-fit: cover;
   object-position: center;
 }
+/* Overlay container centered */
+.hero-overlay{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -30%);
+  text-align: center;
+}
+/* Exact logo size */
 .hero-title{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -50%);
   width: 489px;
-  height:65.5px;
+  height: 65.5px;
+  display: block;
+  margin: 0 auto;
+}
+/* Subtitle spacing (uses your H2 style) */
+.hero-subtitle{
+  margin-top: 12px;
 }
 
 /* ABOUT */

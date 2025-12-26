@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=1200, initial-scale=1" />
   <title>Gargoyle Studios</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <script src="scriptslideshow.js" defer></script>
+
 </head>
 
 <body>
@@ -13,7 +16,6 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="Home">
-        <!-- Rename if your file differs -->
         <img class="brand-logo" src="gs-logo.svg" alt="Gargoyle Studios" />
       </a>
 
@@ -48,57 +50,83 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="about video-bg" aria-label="About Me">
+    <section id="about" class="about" aria-label="About Me">
       <video class="background-video" autoplay muted loop playsinline>
         <source src="about/background-video.mp4" type="video/mp4" />
       </video>
 
-      <!-- 1200px frame that matches the rest of the site -->
       <div class="container about-content">
         <div class="about-panel">
           <div class="about-panel-inner">
             <h1>About Me</h1>
             <h2>Instructional design, 3D modeling, Game development</h2>
 
-            <p>I’m a multidisciplinary digital creator with a background in 3D modeling, visualization, and technical design, and a growing focus on game development and interactive storytelling. My work blends engineering-driven thinking with cinematic, science-fiction–inspired worlds — from architectural visualization and product design to real-time environments and interactive prototypes. 
-
-                I’m deeply fascinated by advanced propulsion systems, especially the Project ROVER nuclear thermal rocket program, as well as emerging technologies like 3D printing, real-time rendering, and procedural world building. These interests strongly influence both my visual style and the kinds of projects I pursue.
-
-                Gargoyle Studios began as a personal creative lab — a place to experiment, learn, and push the limits of what a solo creator can build. Today it represents the foundation of a future independent game studio focused on atmospheric science fiction, simulation-inspired mechanics, and player-driven storytelling.
-
-                I’m always learning, building and exploring new tools. Every project here is part of a larger journey toward gaining as much knowledge as I can and learning from pain points along the way.</p>
+            <p>
+              I’m a multidisciplinary digital creator with a background in 3D modeling, visualization,
+              and technical design, and a growing focus on game development and interactive storytelling.
+              My work blends engineering-driven thinking with cinematic, science-fiction–inspired worlds —
+              from architectural visualization and product design to real-time environments and interactive
+              prototypes.
+              <br><br>
+              I’m deeply fascinated by advanced propulsion systems, especially the Project ROVER nuclear
+              thermal rocket program, as well as emerging technologies like 3D printing, real-time rendering,
+              and procedural world building. These interests strongly influence both my visual style and the
+              kinds of projects I pursue.
+              <br><br>
+              Gargoyle Studios began as a personal creative lab — a place to experiment, learn, and push the
+              limits of what a solo creator can build. Today it represents the foundation of a future
+              independent game studio focused on atmospheric science fiction, simulation-inspired mechanics,
+              and player-driven storytelling.
+              <br><br>
+              I’m always learning, building and exploring new tools. Every project here is part of a larger
+              journey toward gaining as much knowledge as I can and learning from pain points along the way.
+            </p>
 
             <h2>Highlights</h2>
 
             <div class="icon-text-container">
-                <div class="icon-column">
-                    <img src="about/icon1.png" alt="Icon 1">
-                </div>
-                <div class="text-column">
-                    <h2>Instructional Design & Multimedia Development</h2>
-                    <p>With ~19 years of directly relevant instructional/digital learning experience, I design and build accessible, multimedia-rich training experiences used by worldwide audiences. My background in instructional design informs everything I create — emphasizing clarity, intuitive interaction, and meaningful user experience. I specialize in Articulate Storyline, video production, motion graphics, and WCAG-compliant learning design.</p>
-                </div>
+              <div class="icon-column">
+                <img src="about/icon1.png" alt="Instructional Design icon">
+              </div>
+              <div class="text-column">
+                <h2>Instructional Design & Multimedia Development</h2>
+                <p>
+                  With ~19 years of directly relevant instructional/digital learning experience, I design
+                  and build accessible, multimedia-rich training experiences used by worldwide audiences.
+                  I specialize in Articulate Storyline, video production, motion graphics, and WCAG-compliant
+                  learning design.
+                </p>
+              </div>
             </div>
 
             <div class="icon-text-container">
-                <div class="icon-column">
-                    <img src="about/icon2.png" alt="Icon 2">
-                </div>
-                <div class="text-column">
-                    <h2>3D Modeling & Visualization</h2>
-                    <p>I specialize in technical 3D modeling for illustration and real-time engines, architectural visualization, and concept development. My work blends precision with storytelling — from engineered structures and environments to science-fiction–inspired assets rooted in real physics. I work primarily in Maya, and Unreal Engine, with a strong focus on clean topology, optimized assets, and production-ready pipelines.</p>
-                </div>
+              <div class="icon-column">
+                <img src="about/icon2.png" alt="3D Modeling icon">
+              </div>
+              <div class="text-column">
+                <h2>3D Modeling & Visualization</h2>
+                <p>
+                  I specialize in technical 3D modeling for illustration and real-time engines, architectural
+                  visualization, and concept development. I work primarily in Maya and Unreal Engine, with a
+                  focus on clean topology, optimized assets, and production-ready pipelines.
+                </p>
+              </div>
             </div>
 
             <div class="icon-text-container">
-                <div class="icon-column">
-                    <img src="about/icon3.png" alt="Icon 3">
-                </div>
-                <div class="text-column">
-                    <h2>Game Development & Interactive Systems</h2>
-                    <p>Game development is where all my interests converge — art, engineering, storytelling, and systems design. I’m currently focused on learning and developing in Unreal Engine, building interactive prototypes, gameplay systems, and science-fiction worlds inspired by real technology and speculative futures. Gargoyle Studios represents the humble beginning of my journey as a one-person indie game studio dedicated to grounded sci-fi, player choice, and simulation-driven design.</p>
-                </div>
+              <div class="icon-column">
+                <img src="about/icon3.png" alt="Game Development icon">
+              </div>
+              <div class="text-column">
+                <h2>Game Development & Interactive Systems</h2>
+                <p>
+                  Game development is where all my interests converge — art, engineering, storytelling, and
+                  systems design. I’m currently focused on learning and developing in Unreal Engine, building
+                  interactive prototypes and gameplay systems.
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -106,9 +134,17 @@
 
     <!-- PORTFOLIO -->
     <section id="portfolio" class="portfolio" aria-label="Portfolio">
-      <div class="container">
-        <h1>Instructional Design</h1>
-        <h2>Examples (Articulate Storyline published to HTML)</h2>
+      <div class="container portfolio-content">
+        <h1>Portfolio</h1>
+        <h2>Instructional design</h2>
+
+        <p>
+          I approach instructional design with a continuous-improvement mindset. I design from the learner’s
+          point of view—checking whether information is presented clearly, whether key concepts are reinforced
+          without unnecessary repetition, and whether activities and assessments align to the intended outcomes.
+        </p>
+
+        <h2>Instructional design - Examples</h2>
 
         <div class="grid">
           <article class="card">
@@ -116,7 +152,6 @@
             <div class="card-body">
               <h3>Base Camp</h3>
               <p>Layout and template test, utilizing voiceover and closed captions.</p>
-              <!-- With an index.html redirect in the folder, this opens reliably -->
               <a class="btn" href="portfolio/as-expedition-dna/">Open sample</a>
             </div>
           </article>
@@ -139,6 +174,61 @@
             </div>
           </article>
         </div>
+
+        <h2>3D modeling</h2>
+        <p>
+          When I first began learning 3D modeling, Red Rocks Community College was the only local program offering
+          animation—and it was entirely Mac-based. I was a PC user at the time, but I leaned into the learning curve
+          and adapted quickly.
+        </p>
+
+        <h2>3D modeling - Examples</h2>
+
+        <!-- Framer-like slider -->
+        <section class="framer-slider" aria-label="Featured samples">
+          <div class="framer-slider__shell">
+            <button class="framer-slider__btn" type="button" data-dir="-1" aria-label="Previous slide">‹</button>
+
+            <div class="framer-slider__viewport" tabindex="0">
+              <ul class="framer-slider__track">
+                <li class="framer-slide">
+                  <a class="framer-slide__card" href="portfolio/slideshow01/brave-blast-furnace/" aria-label="Open Base Camp sample">
+                    <img src="portfolio/slideshow01/brave-blast-furnace.png" alt="Base Camp thumbnail" loading="lazy" />
+                    <div class="framer-slide__meta">
+                      <h3>Base Camp</h3>
+                      <p>Layout + VO + closed captions.</p>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="framer-slide">
+                  <a class="framer-slide__card" href="portfolio/slideshow01/brave-hammerhead/" aria-label="Open Information Security sample">
+                    <img src="portfolio/slideshow01/brave-hammerhead.png" alt="Information Security thumbnail" loading="lazy" />
+                    <div class="framer-slide__meta">
+                      <h3>Information Security</h3>
+                      <p>Interaction flow + anonymized content.</p>
+                    </div>
+                  </a>
+                </li>
+
+                <li class="framer-slide">
+                  <a class="framer-slide__card" href="portfolio/slideshow01/brave-midnight-coup/" aria-label="Open Project Rover sample">
+                    <img src="portfolio/slideshow01/brave-midnight-coup.png" alt="Project Rover thumbnail" loading="lazy" />
+                    <div class="framer-slide__meta">
+                      <h3>Project Rover</h3>
+                      <p>Technical narrative + interaction.</p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <button class="framer-slider__btn" type="button" data-dir="1" aria-label="Next slide">›</button>
+          </div>
+
+          <div class="framer-slider__dots" role="tablist" aria-label="Slide navigation"></div>
+        </section>
+
       </div>
     </section>
 
@@ -148,11 +238,13 @@
         <div>
           <h3>Contact</h3>
           <p>
-            <a href="mailto:aanicholas2000@gmail.com">aanicholas2000@gmail.com</a><br />
+            <a href="mailto:aanicholas2000@gmail.com">Email: Andrew Nicholas</a><br />
             <a href="https://www.linkedin.com/in/andrew-nicholas-57845619" target="_blank" rel="noopener noreferrer">
               LinkedIn: andrew-nicholas-57845619
             </a><br />
-            <a href="https://github.com/aanicholas/Gargoyle-Studios" id="githubLink">GitHub: (https://github.com/aanicholas/Gargoyle-Studios)</a>
+            <a href="https://github.com/aanicholas/Gargoyle-Studios" target="_blank" rel="noopener noreferrer">
+              GitHub: Gargoyle-Studios
+            </a>
           </p>
         </div>
 

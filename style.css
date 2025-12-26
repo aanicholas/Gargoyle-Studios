@@ -2,9 +2,16 @@
   --page-width: 1200px;
   --header-h: 64px;
 
-  --about-h: 1300px;          /* fixed per your requirement */
-  --about-panel-w: 715px;     /* fixed per your requirement */
-  --about-panel-bg: transparent;  /* remember to set slight transparency rgba(0, 0, 0, 0.35); */
+  /* Section heights (your “verification” fixed values) */
+  --hero-min-h: 1190px;
+  --about-h: 1510px;
+  --portfolio-min-h: 3600px;
+  --footer-min-h: 284px;
+
+  /* About panel + video positioning */
+  --about-panel-w: 715px;
+  --about-panel-bg: transparent;  /* set rgba(0,0,0,.35) if you want tint */
+  --about-video-x: 55%;           /* 50% centered; higher shifts visible area right */
 
   /* Typography */
   --h1-size: 38px;
@@ -33,66 +40,24 @@
   --btn-bg: rgba(255,255,255,.08);
   --btn-bg-hover: rgba(255,255,255,.14);
 
-  /* Temporary visualization colors */
-  --hero-bg: #000000;
-  --about-bg: green;
-  --portfolio-bg: blue;
-
-  /* Layout minimum heights (verification pass) */
-  --hero-min-h: 1190px;
-  --about-min-h: 1510px;
-  --portfolio-min-h: 3600px;
-  --footer-min-h: 284px;
-
-  /* ABOUT */
-.about{
-  position: relative;
-  min-height: var(--about-h);
-  background: #000; /* behind video margins if any */
-  overflow: hidden;
+  /* Section backgrounds (set all to #000 when done) */
+  --hero-bg: #000;
+  --about-bg: #000;
+  --portfolio-bg: #000;
+  --footer-bg: #000;
 }
 
-/* Video behind everything */
-.about-video{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: var(--about-h);
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* Overlay panel: 715px wide, full height, flush top-left */
-.about-panel{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--about-panel-w);
-  height: var(--about-h);
-  background: var(--about-panel-bg);
-  z-index: 1;
-  display: flex;
-  align-items: flex-start;
-}
-
-/* Optional inner padding for content */
-.about-panel-inner{
-  width: 100%;
-  padding: 28px;
-}
-}
-
-*{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
 
 body{
-  margin:0;
-  background:#000;
+  margin: 0;
   min-width: var(--page-width);
+  background: #000;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Anchor offset so headings don't hide under fixed header if needed change 0px to 10px or something*/
+/* Anchor offset for fixed header */
 section, footer{ scroll-margin-top: calc(var(--header-h) + 0px); }
 
 .container{
@@ -102,14 +67,22 @@ section, footer{ scroll-margin-top: calc(var(--header-h) + 0px); }
 }
 
 .skip-link{
-  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 .skip-link:focus{
-  left:16px; top:16px; width:auto; height:auto;
-  padding:10px 12px;
-  background:#111;
-  border:1px solid rgba(255,255,255,.15);
-  z-index:9999;
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 10px 12px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,.15);
+  z-index: 9999;
 }
 
 /* Universal Type */
@@ -148,22 +121,24 @@ a:hover{ color: var(--link-hover); }
   top: 0; left: 0; right: 0;
   height: var(--header-h);
   background: rgba(0,0,0,.75);
-  border-bottom: 1px solid rgba(255,255,255,.12); /* keep if you like; remove if you want zero lines */
   z-index: 1000;
 }
 .header-inner{
   height: var(--header-h);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 24px;
 }
 .brand-logo{
   height: 44px;
   width: auto;
-  display:block;
+  display: block;
 }
-.nav{ display:flex; gap: 18px; }
+.nav{
+  display: flex;
+  gap: 18px;
+}
 .nav a{ padding: 10px 10px; }
 
 /* Offset for fixed header */
@@ -173,23 +148,20 @@ a:hover{ color: var(--link-hover); }
 .hero{
   background: var(--hero-bg);
   min-height: var(--hero-min-h);
-  padding: 0;
 }
 .hero-frame{
   position: relative;
   height: var(--hero-min-h);
-  overflow: hidden;
-  /* removed the 1px frame border */
+  overflow: hidden; /* no 1px border */
 }
 .hero-image{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
-/* Overlay container centered */
 .hero-overlay{
   position: absolute;
   left: 50%;
@@ -197,121 +169,231 @@ a:hover{ color: var(--link-hover); }
   transform: translate(-50%, -30%);
   text-align: center;
 }
-/* Exact logo size */
 .hero-title{
   width: 489px;
   height: 65.5px;
   display: block;
   margin: 0 auto;
 }
-/* Subtitle spacing (uses your H2 style) */
-.hero-subtitle{
-  margin-top: 12px;
-}
+.hero-subtitle{ margin-top: 12px; }
 
 /* ABOUT */
 .about{
   position: relative;
   min-height: var(--about-h);
-  background: #000;
-  overflow: hidden;
-}
-.video-bg{
-  position: relative;
+  background: var(--about-bg);
   overflow: hidden;
 }
 .background-video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: var(--about-video-x) 50%;
   z-index: 0;
 }
-.overlay{
-  position: relative;
-  z-index: 1;
-  min-height: var(--about-min-h);
-  display:flex;
-  align-items:flex-start;
-  padding-top: 26px;
-}
-/* This wrapper is the positioning context for the panel */
 .about-content{
   position: relative;
   min-height: var(--about-h);
-  z-index: 1; /* above the video */
-  padding: 0; /* ensure 0 gap at left/top inside the 1200 frame change to 28 later*/
+  padding: 0;      /* flush inside 1200 frame */
+  z-index: 1;
+}
+.about-panel{
+  position: absolute;
+  top: 0;
+  left: 0; /* aligns to the 1200px container edge (not browser edge) */
+  width: var(--about-panel-w);
+  height: var(--about-h);
+  background: var(--about-panel-bg);
+  z-index: 2;
+}
+.about-panel-inner{
+  height: 100%;
+  padding: 28px;
+  overflow: hidden;
 }
 
-/* This controls the Icon display */
-.icon-text-container {
-    display: flex;
+/* About icons layout */
+.icon-text-container{
+  display: flex;
+  gap: 18px;
+  margin: 18px 0 6px;
 }
-.icon-column {
-    width: 100px; /* Set the width of the icon column */
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.icon-column{
+  width: 100px;
+  flex: 0 0 100px;
+}
+.icon-column img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.text-column{
+  flex: 1 1 auto;
 }
 
 /* PORTFOLIO */
 .portfolio{
   background: var(--portfolio-bg);
   min-height: var(--portfolio-min-h);
-  padding-top: 40px;
+  padding: 36px 0 60px;
 }
+.portfolio-content{
+  padding-top: 18px;
+}
+
+/* Cards (square corners per your request) */
 .grid{
-  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+  margin-top: 14px;
+  margin-bottom: 28px;
 }
 .card{
-  background: rgba(0,0,0,.70);
-  /* removed border + removed rounded corners */
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.65);
+  border-radius: 0; /* remove rounded boxes */
   overflow: hidden;
 }
 .card img{
-  width:100%;
-  height: 220px;
+  width: 100%;
+  height: 210px;
   object-fit: cover;
-  display:block;
+  display: block;
 }
-.card-body{ padding: 16px; }
+.card-body{
+  padding: 14px;
+}
 
-/* Buttons stay rounded */
+/* Buttons (rounded) */
 .btn{
-  display:inline-block;
+  display: inline-block;
   padding: 10px 12px;
   border-radius: var(--btn-radius);
   border: 1px solid var(--btn-border);
   background: var(--btn-bg);
-  color: var(--link-color);
+  color: #fff;
 }
 .btn:hover{
   background: var(--btn-bg-hover);
   color: var(--link-hover);
 }
 
+/* ---------- Framer-like slider (scroll-snap) ---------- */
+.framer-slider{
+  width: 100%;
+  margin-top: 18px;
+}
+
+.framer-slider__shell{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.framer-slider__btn{
+  height: 44px;
+  width: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+
+.framer-slider__btn:hover{
+  color: #C7BB77;
+  background: rgba(255,255,255,.14);
+}
+
+.framer-slider__viewport{
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  outline: none;
+}
+.framer-slider__viewport::-webkit-scrollbar{ display: none; }
+
+.framer-slider__track{
+  display: flex;
+  gap: 16px;
+  padding: 6px 2px;
+  margin: 0;
+  list-style: none;
+}
+
+.framer-slide{
+  scroll-snap-align: start;
+  flex: 0 0 360px;
+}
+
+.framer-slide__card{
+  display: block;
+  background: rgba(0,0,0,.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 0; /* square like your cards */
+  overflow: hidden;
+}
+
+.framer-slide__card img{
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+.framer-slide__meta{
+  padding: 14px;
+}
+
+.framer-slide__meta h3{ margin: 0 0 8px; }
+.framer-slide__meta p{ margin: 0; }
+
+/* Dots */
+.framer-slider__dots{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.framer-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: transparent;
+  cursor: pointer;
+}
+
+.framer-dot[aria-selected="true"]{
+  background: #C7BB77;
+  border-color: #C7BB77;
+}
+
+@media (max-width: 1280px){
+  .framer-slide{ flex-basis: 70vw; }
+}
+
 /* FOOTER */
 .footer{
+  background: var(--footer-bg);
   min-height: var(--footer-min-h);
-  background: #060606;
-  border-top: 1px solid rgba(255,255,255,.12);
-  display:flex;
-  align-items:center;
+  padding: 28px 0;
 }
 .footer-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
+  display: flex;
+  justify-content: space-between;
   gap: 24px;
 }
-.footer-links a{ padding: 8px 0; }
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior:auto; }
-  .background-video{ display:none; }
-}
+.footer-links{ display: flex; gap: 16px; }

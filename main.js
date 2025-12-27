@@ -1,6 +1,8 @@
 (function () {
   const modal = document.getElementById("storyModal");
   const frame = document.getElementById("storyFrame");
+  if (!modal || !frame) return;
+
 
   function openModal(src) {
     frame.src = src;
@@ -15,23 +17,22 @@
     frame.src = "";
   }
 
-  document.addEventListener("click", (e) => {
-    const openBtn = e.target.closest("[data-open-story]");
-    if (openBtn) {
-      const src = openBtn.getAttribute("data-src");
-      if (src) openModal(src);
-      return;
-    }
+document.addEventListener("click", (e) => {
+  const openBtn = e.target.closest("[data-open-story]");
+  if (openBtn) {
+    // Prevent link navigation if it's an anchor (or inside one)
+    const anchor = openBtn.closest("a");
+    if (anchor) e.preventDefault();
 
-    if (e.target.closest("[data-close-modal]")) {
-      closeModal();
-      return;
-    }
-  });
+    const src = openBtn.getAttribute("data-src");
+    if (src) openModal(src);
+    return;
+  }
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
-      closeModal();
-    }
-  });
+  if (e.target.closest("[data-close-modal]")) {
+    closeModal();
+    return;
+  }
+});
+
 })();

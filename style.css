@@ -1,5 +1,6 @@
 :root{
-  --page-width: 1200px;
+  --page-width: clamp(1200px, 100vw, 1280px);
+
   --header-h: 64px;
 
   /* Section heights (your “verification” fixed values) */
@@ -11,7 +12,7 @@
   /* About panel + video positioning */
   --about-panel-w: 715px;
   --about-panel-bg: transparent;  /* set rgba(0,0,0,.35) if you want tint */
-  --about-video-x: 55%;           /* 50% centered; higher shifts visible area right */
+  --about-video-x: 50%;           /* 50% centered; higher shifts visible area right */
 
   /* Typography */
   --h1-size: 38px;
@@ -29,6 +30,13 @@
   --p-size: 16px;
   --p-color: #B1B1B1;
   --p-weight: 400;
+
+  /* Heading spacing */
+  --h1-mt: 80px;
+  --h1-mb: 60px;
+
+  --h2-mt: 0px;
+  --h2-mb: 30px;
 
   /* Links */
   --link-color: #EAEAEA;
@@ -87,13 +95,13 @@ section, footer{ scroll-margin-top: calc(var(--header-h) + 0px); }
 
 /* Universal Type */
 h1{
-  margin: 0 0 10px;
+  margin: var(--h1-mt) 0 var(--h1-mb);
   font-size: var(--h1-size);
   color: var(--h1-color);
   font-weight: var(--h1-weight);
 }
 h2{
-  margin: 0 0 16px;
+  margin: var(--h2-mt) 0 var(--h2-mb);
   font-size: var(--h2-size);
   color: var(--h2-color);
   font-weight: var(--h2-weight);
@@ -115,12 +123,19 @@ p{
 a{ color: var(--link-color); text-decoration: none; }
 a:hover{ color: var(--link-hover); }
 
+/* Custom spacing only for selected H2s */
+.h2-section{
+  margin-top: 80px;   /* space before */
+  margin-bottom: 40px;  /* space after */
+}
+
+
 /* Header */
 .site-header{
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--header-h);
-  background: rgba(0,0,0,.75);
+  background: rgba(0,0,0,.95);
   z-index: 1000;
 }
 .header-inner{
@@ -253,7 +268,7 @@ a:hover{ color: var(--link-hover); }
 }
 .card{
   border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.65);
+  background: rgba(19, 19, 19, 1);
   border-radius: 0; /* remove rounded boxes */
   overflow: hidden;
 }
@@ -281,20 +296,38 @@ a:hover{ color: var(--link-hover); }
   color: var(--link-hover);
 }
 
-/* ---------- Framer-like slider (scroll-snap) ---------- */
-.framer-slider{
+/* ---------- Slideshow (scroll-snap) ---------- */
+.slideshow{
   width: 100%;
   margin-top: 18px;
+
+  /*
+    Available viewport width inside the shell:
+    page width minus container padding (24px L + 24px R = 48px)
+    minus buttons (44px + 44px)
+    minus gaps between columns (12px + 12px)
+    = --page-width - 48 - 112
+  */
+  --viewport-w: calc(var(--page-width) - 48px - 112px);
+
+  /* Slide exactly fits the visible viewport (no clipping) */
+  --slide-w: var(--viewport-w);
+  --slide-h: calc(var(--slide-w) * 0.5625); /* 16:9 */
+
+  --slide-gap: 16px;
 }
 
-.framer-slider__shell{
+/* Remove any debug outline if present */
+.slideshow__img{ outline: none !important; }
+
+.slideshow__shell{
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 12px;
   align-items: center;
 }
 
-.framer-slider__btn{
+.slideshow__btn{
   height: 44px;
   width: 44px;
   border-radius: 12px;
@@ -307,12 +340,12 @@ a:hover{ color: var(--link-hover); }
   font-size: 20px;
 }
 
-.framer-slider__btn:hover{
+.slideshow__btn:hover{
   color: #C7BB77;
   background: rgba(255,255,255,.14);
 }
 
-.framer-slider__viewport{
+.slideshow__viewport{
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -321,53 +354,49 @@ a:hover{ color: var(--link-hover); }
   scrollbar-width: none;
   outline: none;
 }
-.framer-slider__viewport::-webkit-scrollbar{ display: none; }
+.slideshow__viewport::-webkit-scrollbar{ display: none; }
 
-.framer-slider__track{
+.slideshow__track{
   display: flex;
-  gap: 16px;
+  gap: var(--slide-gap);
   padding: 6px 2px;
   margin: 0;
   list-style: none;
 }
 
-.framer-slide{
+.slideshow__slide{
   scroll-snap-align: start;
-  flex: 0 0 360px;
+  flex: 0 0 var(--slide-w);
 }
 
-.framer-slide__card{
+.slideshow__card{
   display: block;
   background: rgba(0,0,0,.65);
   text-decoration: none;
   border: 1px solid rgba(255,255,255,.10);
-  border-radius: 0; /* square like your cards */
+  border-radius: 0;
   overflow: hidden;
 }
 
-.framer-slide__card img{
+.slideshow__img{
   width: 100%;
-  height: 210px;
+  height: var(--slide-h);
   object-fit: cover;
   display: block;
 }
 
-.framer-slide__meta{
-  padding: 14px;
-}
+.slideshow__meta{ padding: 14px; }
+.slideshow__meta h3{ margin: 0 0 8px; }
+.slideshow__meta p{ margin: 0; }
 
-.framer-slide__meta h3{ margin: 0 0 8px; }
-.framer-slide__meta p{ margin: 0; }
-
-/* Dots */
-.framer-slider__dots{
+.slideshow__dots{
   display: flex;
   gap: 10px;
   justify-content: center;
   margin-top: 14px;
 }
 
-.framer-dot{
+.slideshow__dot{
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -376,14 +405,11 @@ a:hover{ color: var(--link-hover); }
   cursor: pointer;
 }
 
-.framer-dot[aria-selected="true"]{
+.slideshow__dot[aria-selected="true"]{
   background: #C7BB77;
   border-color: #C7BB77;
 }
 
-@media (max-width: 1280px){
-  .framer-slide{ flex-basis: 70vw; }
-}
 
 /* FOOTER */
 .footer{
